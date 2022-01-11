@@ -1,3 +1,4 @@
+<img src="https://devsuperior.com.br/_next/static/images/event_logo-05812d7a034d6637241a6f10ccc2db71.svg" />
 <h1 align="center">DSMovie</h1>
 <p align="center">Projeto desenvolvido na <a href="https://devsuperior.com.br/evento-sds?episodio=1">Semana Spring React - @DevSuperior</a></p>
 
