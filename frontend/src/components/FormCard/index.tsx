@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Movie } from 'types/movie';
 import { BASE_URL } from 'utils/requests';
 import './style.css';
@@ -8,6 +8,8 @@ type Props = {
     movieId: string;
 }
 function FormCard( { movieId }: Props) {
+
+    const navigate = useNavigate();
 
     const [movie, setMovie] = useState<Movie>();
 
@@ -17,15 +19,37 @@ function FormCard( { movieId }: Props) {
         })
     })
 
+    const handleSubmit = (event :  React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const nome = (event.target as any).nome.value;
+        const score = (event.target as any).score.value;
+
+        const config: AxiosRequestConfig = {
+            baseURL: BASE_URL,
+            method: 'PUT',
+            url: '/scores',
+            data: {
+                nome: nome,
+                movieId: movieId,
+                score: score
+            }
+        }
+
+        axios(config).then(response => {
+            navigate("/");
+        })
+    }
+
     return (
         <div className="dsmovie-form-container">
             <img className="dsmovie-movie-card-image" src={movie?.image} alt={movie?.title} />
             <div className="dsmovie-card-bottom-container">
                 <h3>{movie?.title}</h3>
-                <form className="dsmovie-form">
+                <form className="dsmovie-form" onSubmit={handleSubmit}>
                     <div className="form-group dsmovie-form-group">
-                        <label htmlFor="email">Informe seu email</label>
-                        <input type="email" className="form-control" id="email" />
+                        <label htmlFor="email">Informe seu Nome:</label>
+                        <input type="text" className="form-control" id="nome" />
                     </div>
                     <div className="form-group dsmovie-form-group">
                         <label htmlFor="score">Informe sua avaliação</label>
