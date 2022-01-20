@@ -2,18 +2,17 @@
 <h1 align="center">DSMovie</h1>
 <p align="center">Projeto desenvolvido na <a href="https://devsuperior.com.br/evento-sds?episodio=1">Semana Spring React - @DevSuperior</a></p>
 
-<h4 align="center"> 
-	🚧  Em construção...  🚧
-</h4>
+<p align="center">Projeto completo <a href="https://n4ow-dsmovie.netlify.app/">DSMovie</a></p>
 
 <div align="center">
 <h4>Features</h4>
 
 - [x] Frontend Estático com React
-- [ ] Backend Java com Spring
-- [ ] Integração e Hospedagem Heroku
+- [x] Backend Java com Spring
+- [x] Integração e Hospedagem Heroku
 </div>
 <hr>
+
 
 Feito com ❤️ por Alex Maximiano 👋🏽 Entre em contato!
 
